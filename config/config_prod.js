@@ -1,5 +1,5 @@
 module.exports = {
-  PORT: 3001,  
+  PORT: process.env.PORT,  
   CLIENT_ID: process.env.CLIENT_ID,
   CLIENT_SECRET: process.env.CLIENT_SECRET,
   USER_ID: process.env.USER_ID,  
