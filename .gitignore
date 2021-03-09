@@ -1,0 +1,5 @@
+node_modules/
+data/
+mock/
+config/config_dev.js
+*.log
