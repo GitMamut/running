@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const morgan = require('morgan');
 
+const config = require('./config');
+
 const log = require('simple-node-logger').createSimpleLogger({
   logFilePath: 'server.log', timestampFormat: 'YYYY-MM-DD HH:mm:ss.SSS'
 });
@@ -18,3 +20,10 @@ const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'),
 exports.morgan = morgan(
   ':remote-addr - :remote-user [:date[clf]] ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent"'
   , { stream: accessLogStream });
+
+exports.startup = function () {
+  log.info("Starting app...");
+  log.info('NODE_ENV: ' + process.env.NODE_ENV);
+  log.info('PORT: ' + config.PORT);
+  log.info('PREFIX: ' + config.PREFIX);
+}

@@ -1,7 +1,9 @@
-
+const log = require('./log.js');
 const srv = require('./srv.js')
 const config = require('./config')
 const { test, login, workouts } = require('./requestHandlers');
+
+log.startup();
 
 const server = srv.configure();
 
