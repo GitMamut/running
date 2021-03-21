@@ -30,7 +30,7 @@ exports.morgan = morgan(
   , { stream: accessLogStream });
 
 exports.startup = function () {
-  log.info("Starting app...");
+  log.info("Starting app v. 0.0.2");
   log.info('NODE_ENV: ' + process.env.NODE_ENV);
   log.info('PORT: ' + config.PORT);
   log.info('PREFIX: ' + config.PREFIX);
