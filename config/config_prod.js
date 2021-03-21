@@ -4,6 +4,6 @@ module.exports = {
   CLIENT_SECRET: process.env.CLIENT_SECRET,
   USER_ID: process.env.USER_ID,  
   MY_API_KEY: process.env.MY_API_KEY,
-  PREFIX: '/running',
+  PREFIX: process.env.PREFIX,
   GOAL_DISTANCE: 1200,
 }

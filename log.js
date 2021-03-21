@@ -15,6 +15,14 @@ exports.req = function (req){
   log.info(req.headers)
 }
 
+exports.info = function(obj){
+  log.info(obj);
+}
+
+exports.error = function(obj){
+  log.error(obj);
+}
+
 const accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), { flags: 'a' });
 
 exports.morgan = morgan(
