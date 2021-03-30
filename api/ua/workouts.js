@@ -5,10 +5,10 @@ const log = require('../../log.js');
 const config = require('../../config');
 const user = require('../../user.js');
 
-exports.all = function () {
+exports.all = function (startedAfter = config.ZERO_DATE) {
   const params = [
     'user=' + user.id(),
-    'started_after=2021-01-01-T00:00:00Z',
+    'started_after=' + startedAfter,
     'order_by=start_datetime',
   ];
   if (config.FETCH_LOCAL) {
