@@ -12,7 +12,7 @@ exports.all = async function (req, res) {
   res.status(200).send({
     frames: [
       lametric.yearlyGoal(distanceSumPerYear),
-      lametric.surplus(distanceSumPerYear, data.trainings.getLatestDate()),
+      lametric.surplus(distanceSumPerYear),
     ]
   });
 };

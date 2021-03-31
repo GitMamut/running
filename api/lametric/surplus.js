@@ -2,10 +2,9 @@ const config = require('../../config');
 
 const KM_PER_DAY = config.GOAL_DISTANCE / 365;
 
-module.exports = function (currentDistance, latestDate) {
+module.exports = function (currentDistance) {
   const currentDistanceKm = Math.round(currentDistance / 1000);
-  const plannedDistance = getDayOfMonth(latestDate) * KM_PER_DAY;
-  console.log("plannedDistance " + plannedDistance);
+  const plannedDistance = getDayOfMonthToday() * KM_PER_DAY;
   const difference = Math.round(currentDistanceKm - plannedDistance);
   return {
     "text": Math.abs(difference) + ' km',
@@ -13,12 +12,9 @@ module.exports = function (currentDistance, latestDate) {
   };
 }
 
-const getDayOfMonth = (currentDate) => {
+const getDayOfMonthToday = () => {
   const startMilliseconds = Date.parse(config.ZERO_DATE);
-  const endMilliseconds = Date.parse(currentDate);
-  console.log("startMilliseconds " + startMilliseconds);
-  console.log("endMilliseconds " + endMilliseconds);
-
+  const endMilliseconds = new Date().getTime();
   return Math.floor(endMilliseconds - startMilliseconds) / (60 * 60 * 24 * 1000);
 }
 
