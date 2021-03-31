@@ -13,3 +13,8 @@ exports.getSum = function (year) {
     .map(training => training.distance)
     .reduce((prev, curr) => prev + curr, 0);
 }
+
+exports.getAll = function (year) {
+  return access.getTrainings()
+    .filter(training => training.date.startsWith(year));
+}
