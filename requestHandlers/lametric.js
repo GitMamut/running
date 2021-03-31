@@ -17,3 +17,16 @@ exports.all = async function (req, res) {
     ]
   });
 };
+
+exports.last = async function (req, res) {
+  log.req(req);
+  if (req.query.key != config.MY_API_KEY) {
+    return res.status(401).send();
+  }
+  const training = data.trainings.getLast();
+  res.status(200).send({
+    frames: [
+      lametric.last.date(training),
+    ]
+  });
+};

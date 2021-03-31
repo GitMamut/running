@@ -3,5 +3,7 @@ exports.mapToTrainings = function (workoutsList) {
     .map(workout => ({
       distance: workout.aggregates.distance_total,
       date: workout.start_datetime,
+      time: workout.aggregates.elapsed_time_total,
+      speed: workout.aggregates.speed_avg,
     }));
 };

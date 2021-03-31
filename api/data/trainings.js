@@ -18,3 +18,10 @@ exports.getAll = function (year) {
   return access.getTrainings()
     .filter(training => training.date.startsWith(year));
 }
+
+exports.getLast = function () {
+  if (access.getTrainings().length === 0) {
+    return undefined;
+  }
+  return access.getTrainings()[0];
+}
