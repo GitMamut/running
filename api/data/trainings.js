@@ -7,8 +7,9 @@ exports.getLatestDate = function () {
   return access.getTrainings()[0].date;
 }
 
-exports.getSum = function () {
+exports.getSum = function (year) {
   return access.getTrainings()
+    .filter(training => training.date.startsWith(year))
     .map(training => training.distance)
     .reduce((prev, curr) => prev + curr, 0);
 }

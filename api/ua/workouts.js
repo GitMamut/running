@@ -10,6 +10,7 @@ exports.all = function (startedAfter = config.ZERO_DATE) {
     'user=' + user.id(),
     'started_after=' + startedAfter,
     'order_by=start_datetime',
+    'limit=4',
   ];
   if (config.FETCH_LOCAL) {
     log.info(`ua/workouts/all mock from ./mock/workout.json`);

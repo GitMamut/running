@@ -6,5 +6,6 @@ module.exports = {
   MY_API_KEY: process.env.MY_API_KEY,
   PREFIX: process.env.PREFIX,
   GOAL_DISTANCE: 1200,
-  ZERO_DATE: '2021-01-01-T00:00:00Z',
+  ZERO_DATE: '2021-01-01T00:00:00+00:00',
+  YEAR: '2021',
 }

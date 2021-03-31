@@ -8,6 +8,11 @@ exports.all = async function (req, res) {
   if (req.query.key != config.MY_API_KEY) {
     return res.status(401).send();
   }
-  const distanceSum = data.trainings.getSum();
-  res.status(200).send(lametric.yearlyGoal(distanceSum));
+  const distanceSumPerYear = data.trainings.getSum(config.YEAR);
+  res.status(200).send({
+    frames: [
+      lametric.yearlyGoal(distanceSumPerYear),
+      lametric.surplus(distanceSumPerYear, data.trainings.getLatestDate()),
+    ]
+  });
 };
