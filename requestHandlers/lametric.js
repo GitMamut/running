@@ -27,6 +27,10 @@ exports.last = async function (req, res) {
   res.status(200).send({
     frames: [
       lametric.last.date(training),
+      lametric.last.distance(training),
+      lametric.last.duration(training),
+      lametric.last.pace(training),
+      lametric.last.speed(training),
     ]
   });
 };
