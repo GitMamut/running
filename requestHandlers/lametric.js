@@ -9,11 +9,13 @@ exports.all = async function (req, res) {
     return res.status(401).send();
   }
   const distanceSumPerYear = data.trainings.getSum(config.YEAR);
+  const allTrainings = data.trainings.getAll(config.YEAR);
   res.status(200).send({
     frames: [
       lametric.yearlyGoal(distanceSumPerYear),
-      lametric.yearlySummary(data.trainings.getAll(config.YEAR)),
+      lametric.yearlySummary(allTrainings),
       lametric.surplus(distanceSumPerYear),
+      lametric.speedSummary(allTrainings),
     ]
   });
 };
