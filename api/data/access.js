@@ -14,7 +14,8 @@ exports.getTrainings = function () {
     log.error(error);
     return [];
   }
-  return trainingsJSON;
+  return trainingsJSON
+    .filter(training => training.distance > 0);
 }
 
 exports.appendTrainingsSorted = function (newTrainings = []) {

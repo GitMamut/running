@@ -7,7 +7,7 @@ exports.login = function (req, res) {
   if (req.query.key != config.MY_API_KEY) {
     return res.status(401).send();
   }
-  res.redirect(`https://www.mapmyfitness.com/v7.1/oauth2/uacf/authorize/?client_id=${config.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2FloginSuccess%3Fkey%3D${config.MY_API_KEY}`);
+  res.redirect(`https://www.mapmyfitness.com/v7.1/oauth2/uacf/authorize/?client_id=${config.CLIENT_ID}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3001%2FloginSuccess/`);
 };
 
 exports.success = function (req, res) {

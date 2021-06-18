@@ -1,5 +1,9 @@
 module.exports = function (trainings) {
-  var speedList = trainings.slice(-37).map(training => (Math.round(training.speed * 10))).reverse();
+  var speedList = trainings
+    .reverse()
+    .slice(-37)
+    .map(training => (Math.round(training.speed * 10)));
+
   const minSpeed = Math.min(...speedList);
   speedList = speedList.map(speed => speed - minSpeed)
   if (speedList.length < 37) {
