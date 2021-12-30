@@ -5,7 +5,7 @@ module.exports = {
   USER_ID: process.env.USER_ID,  
   MY_API_KEY: process.env.MY_API_KEY,
   PREFIX: process.env.PREFIX,
-  GOAL_DISTANCE: 1200,
-  ZERO_DATE: '2021-01-01T00:00:00+00:00',
-  YEAR: '2021',
+  GOAL_DISTANCE: process.env.GOAL_DISTANCE,
+  ZERO_DATE: process.env.ZERO_DATE,
+  YEAR: process.env.YEAR,
 }
