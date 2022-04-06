@@ -8,4 +8,5 @@ module.exports = {
   GOAL_DISTANCE: process.env.GOAL_DISTANCE,
   ZERO_DATE: process.env.ZERO_DATE,
   YEAR: process.env.YEAR,
+  TOKEN_MAX_AGE: (55 * 1000*60*60*24),
 }

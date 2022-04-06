@@ -7,7 +7,7 @@ const user = require('../../user.js');
 
 exports.all = function (startedAfter = config.ZERO_DATE) {
   const params = [
-    'user=' + user.id(),
+    'user=' + user.getId(),
     'started_after=' + startedAfter,
     'order_by=start_datetime',
     'limit=4',
@@ -21,7 +21,7 @@ exports.all = function (startedAfter = config.ZERO_DATE) {
   const url = 'https://api.ua.com/v7.1/workout/?' + params.join('&');
   const headers = {
     'Api-Key': config.CLIENT_ID,
-    'Authorization': 'Bearer ' + user.token(),
+    'Authorization': 'Bearer ' + user.getAccessToken(),
   };
   log.info(`ua/workouts/all ${url}, ${JSON.stringify(headers)}`);
   return fetch(url, { method: 'GET', headers: headers })
@@ -36,5 +36,4 @@ exports.all = function (startedAfter = config.ZERO_DATE) {
       log.info(`ua/workouts/all response json: ${JSON.stringify(json._embedded.workouts)}`);
       return json._embedded.workouts;
     })
-    .catch(e => log.error(e));
 };
