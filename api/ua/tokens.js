@@ -13,13 +13,18 @@ exports.refresh = function () {
   accessTokenParameters.append('client_secret', config.CLIENT_SECRET);
   accessTokenParameters.append('refresh_token', user.getRefreshToken());
 
-  return fetch('https://api.ua.com/v7.1/oauth2/uacf/access_token/', {
+  const tokenRefreshRequest = {
     method: 'POST',
     headers: {
       'Api-Key': config.CLIENT_ID
     },
     body: accessTokenParameters,
-  })
+  };
+
+  log.info(JSON.stringify(tokenRefreshRequest));
+  log.info('Request body: '+ accessTokenParameters.toString());
+
+  return fetch('https://api.ua.com/v7.1/oauth2/uacf/access_token/', tokenRefreshRequest)
   .then(response => {
     log.info(`ua/tokens/refresh response status: ${response.status}`);
     if (response.status != 200) {

@@ -32,6 +32,5 @@ exports.morgan = morgan(
 exports.startup = function () {
   log.info("Starting app v. 0.0.3");
   log.info('NODE_ENV: ' + process.env.NODE_ENV);
-  log.info('PORT: ' + config.PORT);
-  log.info('PREFIX: ' + config.PREFIX);
+  log.info(JSON.stringify(config));
 }
